@@ -1,0 +1,51 @@
+body {
+	position: relative;
+	font-family: Times New Roman, Times, serif;
+	font-size: 15px;
+	background-color: rgb(160, 160, 160);
+}
+
+#content {
+	width: 955px;
+	margin: 0 auto;
+	padding: 0px 0px 0px;
+	background: white;
+	border: none;
+}
+
+#content h1 {
+	font-size: 30px;
+	padding: 0px 10px 0px;
+	color: navy;
+}
+
+#content h2 {
+	font-size: 17px;
+	padding: 0px 10px 0px;
+	color: navy;
+}
+
+#content h3 {
+	font-size: 15px;
+	padding: 0px 10px 0px;
+	color: navy;
+}
+
+#content h4 {
+	font-size: 15px;
+	padding: 0px 10px 0px;
+	color: navy;
+}
+
+#content p {
+	padding: 0px 10px 0px;
+}
+
+#head{
+	display: block;
+	overflow:hidden;
+	border-style:none;
+	width:955px;
+	height: 150px;
+	position: relative;
+}

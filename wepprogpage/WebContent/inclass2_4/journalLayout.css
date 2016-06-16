@@ -1,0 +1,68 @@
+#page {
+	margin-left: 10%;
+	margin-right: 10%;
+	background-image: url("backgroundImg.jpg")
+}
+
+#content {
+	border: 10px white solid;
+	width: 550px;
+	margin: auto;
+	color: blue;
+	background-color: white;
+}
+
+#content h2 {
+	margin: 0px;
+}
+
+#content h3 {
+	margin: 0px;
+}
+
+#content p {
+	font-size: 75%;
+}
+
+#titlediv {
+	border: none;
+	background-color: #A8F0F0;
+	text-align: right;
+}
+
+#subtitlediv {
+	border: none;
+	font-size: 14pt;
+	margin: 2px;
+}
+
+.catDiv {
+	border: 4px #C2E9E9 solid;
+	padding: 5px;
+	margin-top: 10px;
+	background: #E8FBFB;
+	height: auto;
+	overflow: hidden;
+}
+
+.dateBox {
+	border-bottom: 2px blue dashed;
+	margin-right: 8px;
+	float: left;
+}
+
+.descrptimg {
+	height: 100%;
+	width: 100%;
+}
+
+.imagearea {
+	float: right;
+	height: 25%;
+	width: 25%;
+	margin-left: 10px;
+}
+
+.textarea {
+	
+}

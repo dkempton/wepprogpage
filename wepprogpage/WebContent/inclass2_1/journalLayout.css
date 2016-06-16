@@ -1,0 +1,44 @@
+#content {
+	border: 5px green solid;
+	width: 550px;
+	margin: auto;
+	color: cyan;
+}
+
+#content h2 {
+	margin: 0px;
+}
+
+#content h3 {
+	margin: 0px;
+}
+
+#content p {
+	font-size: 75%;
+}
+
+#titlediv {
+	border: 5px red solid;
+}
+
+#subtitlediv {
+	border: 5px orange solid;
+	margin: 2px;
+}
+
+.catDiv {
+	border: 5px blue solid;
+	padding-left: 2px;
+}
+
+.dateBox {
+	float: left;
+	clear: both;
+	border: 5px purple solid;
+	margin-right: 2px;
+}
+
+.descrptimg {
+	height: 25%;
+	width: 25%;
+}

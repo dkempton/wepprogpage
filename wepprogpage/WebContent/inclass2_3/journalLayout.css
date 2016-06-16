@@ -1,0 +1,62 @@
+#page {
+	margin-left: 10%;
+	margin-right: 10%;
+	background-image: url("backgroundImg.jpg")
+}
+
+#content {
+	border: 5px green solid;
+	width: 550px;
+	margin: auto;
+	color: cyan;
+	background-color: white;
+}
+
+#content h2 {
+	margin: 0px;
+}
+
+#content h3 {
+	margin: 0px;
+}
+
+#content p {
+	font-size: 75%;
+}
+
+#titlediv {
+	border: 5px red solid;
+	text-align: right;
+}
+
+#subtitlediv {
+	border: 5px orange solid;
+	margin: 2px;
+}
+
+.catDiv {
+	border: 5px blue solid;
+	padding: 5px;
+	margin-top: 10px;
+	background: #E8FBFB;
+	height: auto;
+	overflow: hidden;
+}
+
+.dateBox {
+	border: 5px purple solid;
+	margin-right: 2px;
+	float: left;
+}
+
+.descrptimg {
+	height: 100%;
+	width: 100%;
+}
+
+.imagearea {
+	float: right;
+	height: 25%;
+	width: 25%;
+	margin-left: 10px;
+}

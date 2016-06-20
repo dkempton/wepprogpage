@@ -1,0 +1,31 @@
+#head {
+	background-image: url("../head_page_files/image297.png");
+	background-size: 100% 100%;
+	width: 955px;
+	height: 155px;
+	position: relative;
+}
+
+#left_hdiv {
+	position: absolute;
+	left: 15px;
+	width: 589px;
+	height: 100px;
+}
+
+#left_himg {
+	width: 589px;
+}
+
+#right_hdiv {
+	position: absolute;
+	left: 568px;
+	top: 15px;
+	width: 250px;
+	height: 150px;
+}
+
+#right_himg {
+	width: 379px;
+	height: 150px;
+}

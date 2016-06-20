@@ -47,22 +47,10 @@ body {
 	padding: 0px 10px 0px;
 }
 
-#head {
-	background-image: url("../head_page_files/image297.png");
-	background-size: 100% 100%;
-	width: 955px;
-	height: 150px;
-	position: relative;
-	width: 955px;
-}
-
-#foot {
-	width: 100%;
-	height: 90px;
-	border: none;
-	padding-top: 10px;
-	text-align: center;
-	overflow: hidden;
+#mypic {
+	border: 0px;
+	height: 249px;
+	width: 260px;
 }
 
 #picdiv {

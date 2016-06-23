@@ -64,12 +64,6 @@ body {
 	float: left;
 }
 
-#mypic {
-	border: none;
-	height: 249;
-	width: 260;
-}
-
 a:hover {
 	background-color: #aaaaaa;
 	text-decoration: underline;

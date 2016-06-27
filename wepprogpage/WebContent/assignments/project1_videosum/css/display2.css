@@ -1,0 +1,72 @@
+#displaytable {
+	position: relative;
+	margin: 0 auto;
+	height: 300px;
+	width: 675px;
+	text-align: center;
+}
+
+tr.imgrow {
+	height: 250px;
+}
+
+tr.buttonrow {
+	height: 55px;
+}
+
+#img1 {
+	position: absolute;
+	left: 15px;
+	top: 0px;
+	z-index: 1;
+}
+
+#img2 {
+	position: absolute;
+	left: 125px;
+	top: 0px;
+	z-index: 1;
+}
+
+#img3 {
+	position: absolute;
+	left: 275px;
+	top: 0px;
+	z-index: 1;
+}
+
+#img4 {
+	position: absolute;
+	left: 425px;
+	top: 0px;
+	z-index: 1;
+}
+
+.dispImg {
+	height: 256px;
+	width: 256px;
+}
+
+#img1.disp:hover {
+	transform: scale(1.5, 1.5) translate(55px, 50px);
+	opacity: 1;
+	z-index: 2;
+}
+
+#img2.disp:hover {
+	transform: scale(1.5, 1.5) translate(75px, 50px);
+	opacity: 1;
+	z-index: 2;
+}
+
+#img3.disp:hover {
+	transform: scale(1.5, 1.5) translate(75px, 50px);
+	opacity: 1;
+	z-index: 2;
+}
+
+#img4.disp:hover {
+	transform: scale(1.5, 1.5) translate(25px, 50px);
+	opacity: 1;
+	z-index: 2;
+}

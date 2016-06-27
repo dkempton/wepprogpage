@@ -1,0 +1,32 @@
+body {
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
+#head {
+	background-image: url("../head_page_files/image297.png");
+	background-size: 100% 100%;
+	height: 160px;
+}
+
+#left_hdiv {
+	position: absolute;
+	left: 15px;
+}
+
+#left_himg {
+	width: 589px;
+	height: 145px;
+}
+
+#right_hdiv {
+	position: absolute;
+	left: 568px;
+	top: 15px;
+}
+
+#right_himg {
+	width: 379px;
+	height: 150px;
+}

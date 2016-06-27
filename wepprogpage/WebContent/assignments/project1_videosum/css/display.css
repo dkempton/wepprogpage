@@ -6,6 +6,14 @@
 	text-align: center;
 }
 
+tr.imgrow {
+	height: 250px;
+}
+
+tr.buttonrow {
+	height: 55px;
+}
+
 #img1 {
 	position: absolute;
 	left: 15px;

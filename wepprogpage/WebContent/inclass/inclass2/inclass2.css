@@ -1,0 +1,55 @@
+.content {
+	width: 800px;
+	background-color: yellow;
+	overflow: hidden;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+form hr {
+	margin-bottom: 20px;
+}
+
+form h3 {
+	margin-bottom: 20px;
+}
+
+#userinfodiv label {
+	width: 400;
+	text-left: right;
+	padding-right: 10px;
+}
+
+#userinfodiv input, label {
+	float: left;
+	margin-bottom: 10px;
+}
+
+.col1 {
+	display: block;
+	float: left;
+	width: 350px;
+}
+
+.col2 {
+	display: block;
+	float: right;
+	width: 350px;
+}
+
+.bottom {
+	display: block;
+	float: left;
+	width: 800px;
+}
+
+.bottom input {
+	margin-right: 100px;
+}
+
+#orderoutput {
+	height: 200px;
+	width: 450px;
+	float: left;
+	margin-top: 10px;
+}

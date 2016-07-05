@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>InClass2</title>
+<link rel="stylesheet" type="text/css" href="inclass2.css">
+</head>
+<body>
+	<div class="content">
+		<form id="formcontent" name="form1">
+
+			<h1>Pizza Factory</h1>
+			<hr />
+			<h3>Pizza Order Form</h3>
+			<div id="userinfodiv">
+				<label for="name">Name</label> <input id="name" name="name" /> <label
+					for="address">Address</label> <input id="address" name="address" />
+			</div>
+
+			<div class="col1">
+				<h3>Size</h3>
+				<input type="radio" name="size" value="small" />Small<br /> <input
+					type="radio" name="size" value="medium" />Medium<br /> <input
+					type="radio" name="size" value="large" />Large<br />
+			</div>
+
+			<div class="col2">
+				<h3>Toppings</h3>
+				<input type="checkbox" name="topping" value="cheese" />Cheese<br />
+				<input type="checkbox" name="topping" value="olives" />Olives<br />
+				<input type="checkbox" name="topping" value="Pepperoni" />Pepperoni<br />
+				<input type="checkbox" name="topping" value="Bacon" />Bacon<br />
+			</div>
+
+			<div class="bottom">
+				<input type="button" name="submit" value="Place Order" /> <input
+					type="button" name="clear" value="Clear Form" />
+			</div>
+		</form>
+
+		<textarea id="orderoutput">
+		</textarea>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<title>Forms Assignment 4.1</title>
+</head>
+
+<body>
+	<div class="content">
+		<form action="part1.php" method="post">
+			<div id="formContent">
+				Please select a font color: <select name="fontcolor">
+					<option selected>Black</option>
+					<option>Blue</option>
+					<option>Red</option>
+				</select> <br /> Please select a text font: <select name="fontname">
+					<option selected>Times</option>
+					<option>Comic</option>
+					<option>Courier</option>
+				</select> <br /> Select Font size: <select name="fontsize">
+					<option selected>10pt</option>
+					<option>15pt</option>
+					<option>20pt</option>
+					<option>25pt</option>
+				</select><br />
+				<textarea name="remarks" rows="10" cols="100"> Place text here.
+				</textarea>
+				<br />
+				<button class="submit">Submit</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

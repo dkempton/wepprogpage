@@ -1,0 +1,39 @@
+body {
+	background-color: rgb(160, 160, 160);
+}
+
+.content {
+	width: 955px;
+	border-radius: 25px 50px 30px 5px;
+	box-shadow: -1px 1px rgb(140, 140, 140), -3px 3px rgb(140, 140, 140),
+		-4px 4px rgb(140, 140, 140), -6px 6px rgb(140, 140, 140), -7px 7px
+		rgb(140, 140, 140);
+	margin: 0 auto;
+	padding: none;
+	background: white;
+	border: none;
+	overflow: hidden;
+}
+
+#formContent {
+	margin: 15px;
+	margin-top: 50px;
+}
+
+#formContent select {
+	margin-bottom: 25px;
+}
+
+.submit {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	margin-left: 20px;
+	cursor: pointer;
+}

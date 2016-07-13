@@ -1,0 +1,43 @@
+.mandatory {
+	color: red;
+	float: left;
+	clear: left;
+	width: 250px;
+	text-align: left;
+}
+
+.out {
+	float: left;
+	clear: left;
+	width: 250px;
+	text-align: left;
+}
+
+.submit {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	margin-left: 20px;
+	cursor: pointer;
+	float: left;
+	clear: left;
+}
+
+label {
+	display: inline-block;
+	float: left;
+	clear: left;
+	width: 150px;
+	text-align: left;
+}
+
+input {
+	display: inline-block;
+	float: left;
+}

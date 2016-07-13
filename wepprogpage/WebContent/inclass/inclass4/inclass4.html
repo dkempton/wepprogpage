@@ -1,0 +1,43 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Inclass 4</title>
+<link rel="stylesheet" type="text/css" href="inclass4.css" />
+<script type="text/javascript" src="inclass4.js"></script>
+</head>
+
+<body>
+	<form id="inputform" onsubmit="return checkCompleteness();"
+		method="post" action="">
+		<p>
+			<span class="mandatory" id="id_span"></span> <label id="id_label"
+				for="id_in">Id:</label><input id="id_in" />
+		</p>
+		<p>
+			<span class="mandatory" id="first_name_span"></span> <label
+				id="first_name_label" for="first_name_in">First Name</label> <input
+				id="first_name_in" />
+		</p>
+		<p>
+			<span class="mandatory" id="last_name_span"></span><label
+				id="last_name_label" for="last_name_in">Last Name:</label><input
+				id="last_name_in" />
+		</p>
+		<p>
+			<button class="submit">Add</button>
+
+		</p>
+	</form>
+
+	<div>
+		<span class="out" id="id_out"></span>
+		<span class="out" id="first_out"></span>
+		<span class="out" id="last_out"></span>
+	</div>
+
+</body>
+</html>

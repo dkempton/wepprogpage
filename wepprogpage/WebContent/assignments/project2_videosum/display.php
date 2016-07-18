@@ -20,11 +20,7 @@ if ($_SERVER ['REQUEST_METHOD'] === 'POST') {
 	$intervalSeconds = $intervalSeconds / intval ( $clusters );
 	
 	$dispStep = 650 / (intval ( $clusters ) + 1);
-	if ($clusters > 5) {
-		$dispStart = $dispStep - (256 / ($clusters / 2));
-	} else {
-		$dispStart = $dispStep - 128;
-	}
+	$dispStart = $dispStep - 128;
 }
 function dateIntervalToSeconds($dateInterval) {
 	$reference = new DateTime ( 'now' );
@@ -59,7 +55,7 @@ function dateIntervalToSeconds($dateInterval) {
 						
 						for($i = 0; $i < intval ( $clusters ); $i ++) {
 							$pos = $dispStart + ($i * $dispStep);
-							$startDateTime->modify ( '+' . $intervalSeconds . ' second' );
+							$startDateTime->modify ( '+' . intval ( $intervalSeconds ) . ' second' );
 							$startString = $startDateTime->format ( 'Y-m-d' ) . 'T' . $startDateTime->format ( 'H:i:s' );
 							echo '<div class="disp" style="left:' . $pos . 'px;">';
 							echo '<input type="image" class="dispImg" ';

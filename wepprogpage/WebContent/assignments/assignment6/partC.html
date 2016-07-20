@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/partC.css" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="images/favicon.ico" />
+<script src="script/partC.js"></script>
+</head>
+<body onload="init()" >
+	<div class="content">
+		<object id="headdiv" type="text/html" data="templates/head_page.htm">
+		</object>
+		<div class="display_area" id="init_display_area">
+			<p>Select the number of images you wish to have to memmorize. Then 
+			the time you would like to have to memorize the location of the images.  
+			Then click start to attempt to memorize the loction of the images before 
+			they are hidden.  Once they are hidden you will have a limited number 
+			of seconds to match all the images.</p><br/>
+			<div class="_select">
+					<label class="_label" for="photoselect">Number of Photos:</label><select
+						id="photoselect" name="photoselect" tabindex="1">
+						<option value="8">8</option>
+						<option value="10">10</option>
+						<option value="12">12</option>
+					</select>
+				</div>
+
+				<div class="_select">
+					<label class="_label" for="mem_time">Memorization time:</label>
+					<select id="mem_time" name="mem_time" tabindex="2">
+						<option value="3">3 Seconds</option>
+						<option value="5">5 Seconds</option>
+						<option value="8">8 Seconds</option>
+					</select>
+				</div>
+
+			<button class="action_button" id="enter_button" onclick="start()"
+				tabindex="3">Start</button>
+		</div>
+		<div class="display_area" id="game_display_area">
+			
+		</div>
+		<div class="nav_div">
+			<hr />
+			<ul>
+				<li>
+					<h4>
+						<a href="part_A.html">part A</a>
+					</h4>
+				</li>
+				<li>
+					<h4>
+						<a href="partC.html">part C</a>
+					</h4>
+				</li>
+			</ul>
+		</div>
+		<div class="foot_div">
+			<hr />
+			<object id="footdiv" type="text/html"
+				data="templates/footer_page.html"></object>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,28 +1,29 @@
+body {
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+
 #head {
 	background-image: url("../head_page_files/image297.png");
 	background-size: 100% 100%;
-	width: 955px;
-	height: 155px;
-	position: relative;
+	height: 160px;
 }
 
 #left_hdiv {
 	position: absolute;
 	left: 15px;
-	width: 589px;
-	height: 100px;
 }
 
 #left_himg {
 	width: 589px;
+	height: 145px;
 }
 
 #right_hdiv {
 	position: absolute;
 	left: 568px;
 	top: 15px;
-	width: 250px;
-	height: 150px;
 }
 
 #right_himg {

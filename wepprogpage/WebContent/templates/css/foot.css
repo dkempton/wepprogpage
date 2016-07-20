@@ -1,8 +1,13 @@
+body {
+	overflow: hidden;
+}
+
 #foot {
 	width: 100%;
 	height: 90px;
 	border: none;
 	padding-top: 10px;
-	text-align: center;
+	margin: none;
 	overflow: hidden;
+	text-align: center;
 }

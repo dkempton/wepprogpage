@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/partB.css" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="images/favicon.ico" />
+<script src="script/partB.js"></script>
+</head>
+<body onload="getNewNum()">
+	<div class="content">
+		<object id="headdiv" type="text/html" data="templates/head_page.htm">
+		</object>
+		<div class="display_area" id="display_area">
+			<div class="display_area" id="instruct">Select a number between
+				1 and 100.</div>
+			<div class="display_area" id="response"></div>
+			<div class="display_area" id="limitcount"></div>
+			<div class="display_area">
+				<input id="num_in" tabindex="1"></input>
+			</div>
+			<button class="action_button" id="enter_button" onclick="checkNum()"
+				tabindex="2">Check Number</button>
+		</div>
+		<div class="nav_div">
+			<hr />
+			<ul>
+				<li>
+					<h4>
+						<a href="part_A.html">part A</a>
+					</h4>
+				</li>
+				<li>
+					<h4>
+						<a href="partC.html">part C</a>
+					</h4>
+				</li>
+			</ul>
+		</div>
+		<div class="foot_div">
+			<hr />
+			<object id="footdiv" type="text/html"
+				data="templates/footer_page.html"></object>
+		</div>
+	</div>
+
+</body>
+</html>

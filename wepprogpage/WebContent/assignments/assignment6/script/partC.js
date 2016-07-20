@@ -270,8 +270,10 @@ function checkMatch() {
 			par2.removeChild(par2.lastChild);
 		}
 
-		if (list.length == 0)
-			win();
+		list = document.getElementsByTagName('img');
+		if (list.length == 0){			
+			winFunct();
+		}
 
 	} else {
 		flipImg(ansList[0]);
@@ -280,7 +282,7 @@ function checkMatch() {
 
 }
 
-function win() {
+function winFunct() {
 	cleanGameElem();
 	var gameDispElem = document.getElementById('game_display_area');
 	var div = document.createElement('div');

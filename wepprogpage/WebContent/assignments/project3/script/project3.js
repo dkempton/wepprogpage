@@ -66,10 +66,10 @@ function getTrElem(name) {
 function getTable() {
 	var table = document.createElement('table');
 	table.setAttribute('id', 'game_table');
-	for (var i = 1; i <= tableSize; i++) {
+	for (var i = 0; i < tableSize; i++) {
 		var rowName = 'tr_' + i;
 		var tr = getTrElem(rowName);
-		for (var j = 1; j <= tableSize; j++) {
+		for (var j = 0; j < tableSize; j++) {
 			var tdName = 'td_' + i + '_' + j;
 			var td = getTdElem(tdName);
 			tr.appendChild(td);
@@ -93,8 +93,9 @@ function nextGen(numSkip) {
 	var curState = new Array(tableSize);
 	for (var i = 0; i < tableSize; i++) {
 		curState[i] = new Array(tableSize);
-		for (var j = 0; j < tableSize; j++)
+		for (var j = 0; j < tableSize; j++) {
 			curState[i][j] = 0;
+		}
 	}
 
 	var tdList = document.getElementsByTagName('td');
@@ -107,7 +108,7 @@ function nextGen(numSkip) {
 
 		var background = td.style.background;
 		if (background === 'green') {
-			curState[row - 1][col - 1] = 1;
+			curState[row][col] = 1;
 		}
 	}
 
@@ -118,13 +119,13 @@ function nextGen(numSkip) {
 		var row = parseInt(idSplit[1]);
 		var col = parseInt(idSplit[2]);
 
-		var neighborCount = getNeighborCount(row - 1, col - 1, curState);
+		var neighborCount = getNeighborCount(row, col, curState);
 		var background = td.style.background;
-		if (background === 'green' && neighborCount < 2) {
-			td.style.background = '#DCDCDC';
-		} else if (background === 'green' && neighborCount > 3) {
-			td.style.background = '#DCDCDC';
-		} else if (background !== 'green' && neighborCount == 3) {
+		if (background == 'green' && neighborCount < 2) {
+			 td.style.background = '#DCDCDC';
+		} else if (background == 'green' && neighborCount > 3) {
+			 td.style.background = '#DCDCDC';
+		} else if (background != 'green' && neighborCount == 3) {
 			td.style.background = 'green';
 		}
 	}
@@ -145,8 +146,8 @@ function randomPop() {
 	var randPop = Math.random() * (tableSize * tableSize);
 	reset();
 	for (var i = 0; i < randPop; i++) {
-		var x = Math.ceil(Math.random() * tableSize);
-		var y = Math.ceil(Math.random() * tableSize);
+		var x = Math.floor(Math.random() * tableSize);
+		var y = Math.floor(Math.random() * tableSize);
 
 		var tdElem = document.getElementById('td_' + x + '_' + y);
 		var background = tdElem.style.background;
@@ -189,72 +190,72 @@ function updateGenAndCountDisplay(count) {
 	generationHeader.innerHTML = "Generation: " + generation;
 }
 
-function getNeighborCount(x, y, curState) {
+function getNeighborCount(row, col, curState) {
 	var count = 0;
-	count += neighbor1Check(x, y, curState);
-	count += neighbor2Check(x, y, curState);
-	count += neighbor3Check(x, y, curState);
-	count += neighbor4Check(x, y, curState);
-	count += neighbor5Check(x, y, curState);
-	count += neighbor6Check(x, y, curState);
-	count += neighbor7Check(x, y, curState);
-	count += neighbor8Check(x, y, curState);
+	count += neighborULCheck(row, col, curState);
+	count += neighborUCheck(row, col, curState);
+	count += neighborURCheck(row, col, curState);
+	count += neighborRCheck(row, col, curState);
+	count += neighborLRCheck(row, col, curState);
+	count += neighborLwCheck(row, col, curState);
+	count += neighborLLCheck(row, col, curState);
+	count += neighborLfCheck(row, col, curState);
 	return count;
 }
 
-function neighbor1Check(x, y, curState) {
-	if (x - 1 > -1) {
-		if (y - 1 > -1) {
-			return curState[x - 1][y - 1];
+function neighborULCheck(row, col, curState) {
+	if (row - 1 > -1) {
+		if (col - 1 > -1) {
+			return curState[row - 1][col - 1];
 		}
 	}
 	return 0;
 }
-function neighbor2Check(x, y, curState) {
-	if (x - 1 > -1) {
-		return curState[x - 1][y];
+function neighborUCheck(row, col, curState) {
+	if (row - 1 > -1) {
+		return curState[row - 1][col];
 	}
 	return 0;
 }
-function neighbor3Check(x, y, curState) {
-	if (x - 1 > -1) {
-		if (y + 1 < curState[0].length) {
-			return curState[x - 1][y + 1];
+function neighborURCheck(row, col, curState) {
+	if (row - 1 > -1) {
+		if (col + 1 < tableSize) {
+			return curState[row - 1][col + 1];
 		}
 	}
 	return 0;
 }
-function neighbor4Check(x, y, curState) {
-	if (y + 1 < curState[0].length) {
-		return curState[x][y + 1];
+function neighborRCheck(row, col, curState) {
+	if (col + 1 < tableSize) {
+		return curState[row][col + 1];
 	}
 	return 0;
 }
-function neighbor5Check(x, y, curState) {
-	if (x + 1 < curState.length) {
-		if (y + 1 < curState[0].length) {
-			return curState[x + 1][y + 1];
+function neighborLRCheck(row, col, curState) {
+	if (row + 1 < tableSize) {
+		if (col + 1 < tableSize) {
+			return curState[row + 1][col + 1];
 		}
 	}
 	return 0;
 }
-function neighbor6Check(x, y, curState) {
-	if (x + 1 < curState.length) {
-		return curState[x + 1][y];
+function neighborLwCheck(row, col, curState) {
+	if (row + 1 < tableSize) {
+		return curState[row + 1][col];
 	}
 	return 0;
 }
-function neighbor7Check(x, y, curState) {
-	if (x + 1 < curState.length) {
-		if (y - 1 > -1) {
-			return curState[x + 1][y - 1];
+function neighborLLCheck(row, col, curState) {
+	if (row + 1 < tableSize) {
+		if (col - 1 > -1) {
+			return curState[row + 1][col - 1];
 		}
 	}
 	return 0;
 }
-function neighbor8Check(x, y, curState) {
-	if (y - 1 < -1) {
-		return curState[x][y - 1];
+function neighborLfCheck(row, col, curState) {
+	if (col - 1 > -1) {
+		return curState[row][col - 1];
 	}
 	return 0;
 }

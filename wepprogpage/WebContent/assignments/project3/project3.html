@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/project3.css" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="images/favicon.ico" />
+<script src="script/project3.js"></script>
+<title>Project 3</title>
+</head>
+<body onload="init()">
+	<div class="content">
+		<object id="headdiv" type="text/html" data="templates/head_page.htm">
+		</object>
+		<div class="display_area" id="count_area">
+			<h3 id="generation_h"></h3>
+			<h3 id="count_h"></h3>
+			<label class="_label" for="tableselect">Rows and Columns of
+				table:</label><select id="tableselect" name="tableselect" tabindex="1"
+				onChange="changTable(this)">
+				<option value="25">25</option>
+				<option value="30">30</option>
+				<option value="40">40</option>
+				<option value="50">50</option>
+				<option value="60">60</option>
+				<option value="70">70</option>
+				<option value="80">80</option>
+			</select>
+		</div>
+		<div class="display_area" id="display_area"></div>
+		<button class="action_button" onclick="nextGen(1)" tabindex="2">Next
+			Gen</button>
+		<button class="action_button" onclick="nextGen(23)" tabindex="3">Skip
+			23 Gen</button>
+		<button class="action_button" onclick="reset()" tabindex="4">Reset</button>
+		<button class="action_button" onclick="randomPop()" tabindex="5">Random
+			Population</button>
+		<button class="action_button" onclick="start()" tabindex="6">Start</button>
+		<button class="action_button" onclick="stop()" tabindex="7">Stop</button>
+		<div class="foot_div">
+			<hr />
+			<object id="footdiv" type="text/html"
+				data="templates/footer_page.html"></object>
+		</div>
+	</div>
+
+</body>
+</html>

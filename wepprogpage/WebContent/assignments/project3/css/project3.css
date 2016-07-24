@@ -1,0 +1,32 @@
+.display_area {
+	margin: 15px;
+}
+
+table {
+	margin: 0 auto;
+	
+	border: 1px solid black;
+	table-layout: fixed;
+}
+
+td {
+	background: #DCDCDC;
+	margin: 0px;
+	-moz-box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .4), inset -1px
+		-1px 1px rgba(0, 0, 0, .4);
+	-webkit-box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .4), inset
+		-1px -1px 1px rgba(0, 0, 0, .4);
+	box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .4), inset -1px -1px
+		1px rgba(0, 0, 0, .4);
+}
+
+td:hover {
+	background: #C0C0C0;
+}
+
+._select {
+	width: 50%;
+	margin-bottom: 30px;
+	display: block;
+	position: relative;
+}

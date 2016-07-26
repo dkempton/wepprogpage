@@ -1,0 +1,7 @@
+.display_area {
+	margin: 15px;
+}
+
+.informationable>li:hover {
+	background: #C0C0C0;
+}

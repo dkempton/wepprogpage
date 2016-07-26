@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/assignment7.css" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="images/favicon.ico" />
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript" src="script/assignment7.js"></script>
+<title>Assignment 7</title>
+</head>
+<body onload="init()">
+	<div class="content">
+		<object id="headdiv" type="text/html" data="templates/head_page.htm">
+		</object>
+		<form>
+			<img src='images/trash.jpg' alt="trash" id="trash" />
+			<div class="display_area" id="display_area">
+				Payment: <input type="radio" name="payment_type"
+					class="radio_pay_type" id="radio_pay_card" value="card" checked
+					tabindex="1"> Credit Card <input type="radio"
+					name="payment_type" class="radio_pay_type" id="radio_pay_transfer"
+					value="transfer" tabindex="2"> Wire transfer
+				<button class="action_button" tabindex="3">Purchase!</button>
+			</div>
+			<div class="display_area" id="input_area"></div>
+		</form>
+		<div class="display_area" id="removeable_item_area">
+			<hr />
+			<h3>Removable Items</h3>
+			<ul class="removable">
+				<li draggable="true" id="item1">Item 1</li>
+				<li draggable="true" id="item2">Item 2</li>
+				<li draggable="true" id="item3">Item 3</li>
+				<li draggable="true" id="item4">Item 4</li>
+			</ul>
+		</div>
+		<div class="display_area" id="informable_item_area">
+			<hr />
+			<h3>Information Items</h3>
+			<ul class="informationable">
+				<li id="info_item1">Item 1</li>
+				<li id="info_item2">Item 2</li>
+				<li id="info_item3">Item 3</li>
+				<li id="info_item4">Item 4</li>
+			</ul>
+		</div>
+		<div class="foot_div">
+			<hr />
+			<object id="footdiv" type="text/html"
+				data="templates/footer_page.html"></object>
+		</div>
+	</div>
+
+</body>
+</html>

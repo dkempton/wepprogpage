@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/artistEntry.css" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="images/favicon.ico" />
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+<script type="text/javascript" src="script/artistEntry.js"></script>
+<title>Artist Entry</title>
+</head>
+<body>
+	<div class="content">
+		<object id="headdiv" type="text/html" data="templates/head_page.htm">
+		</object>
+
+		<div>
+			<div class="display_area" id="display_area">
+				<label class="_label" for="artist_name">Name of Artist to
+					Enter into the Database:</label> <input id="artist_name" name="artist_name"
+					tabindex="1" autofocus>
+
+			</div>
+			<button class="action_button" tabindex="2" onclick="submitMe()">Submit</button>
+		</div>
+
+		<button class="action_button" tabindex="1"
+			onclick="window.location='displayAlblums.html';">Go To
+			Display Alblums</button>
+		<button class="action_button" tabindex="2"
+			onclick="window.location='alblumEntry.html';">Go To Alblum
+			Entry</button>
+		<div class="foot_div">
+			<hr />
+			<object id="footdiv" type="text/html"
+				data="templates/footer_page.html"></object>
+		</div>
+	</div>
+</body>
+</html>

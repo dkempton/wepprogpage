@@ -1,0 +1,27 @@
+.display_area {
+	margin: 15px;
+}
+
+table {
+	margin: 0 auto;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+td {
+	border-left: 1px solid black;
+	border-left: 1px solid black;
+}
+
+td:first-clild {
+	border-left: none;
+}
+
+td:last-child {
+	border-right: none;
+}
+
+thead {
+	background: lightgray;
+	border-bottom: 1px solid black;
+}

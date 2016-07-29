@@ -16,11 +16,22 @@
 		<object id="headdiv" type="text/html" data="templates/head_page.htm">
 		</object>
 
+		<div>
+			<a id="logout" href="assignment8.html">Logout</a>
+			<div class="display_area" id="display_area">
+				<label class="_label" for="artist_name">Name of Artist for
+					the alblum:</label> <input id="artist_name" name="artist_name" tabindex="1"
+					autofocus> <br /> <label class="_label" for="alblum_name">Name
+					of the alblum:</label> <input id="alblum_name" name="alblum_name"
+					tabindex="2">
+			</div>
+			<button class="action_button" tabindex="3" onclick="submitMe()">Submit</button>
+		</div>
 		<div class="display_area" id="display_area"></div>
-		<button class="action_button" tabindex="1"
+		<button class="action_button" tabindex="4"
 			onclick="window.location='displayAlblums.html';">Go To
 			Display Alblums</button>
-		<button class="action_button" tabindex="2"
+		<button class="action_button" tabindex="5"
 			onclick="window.location='artistEntry.html';">Go To
 			ArtistEntry</button>
 		<div class="foot_div">

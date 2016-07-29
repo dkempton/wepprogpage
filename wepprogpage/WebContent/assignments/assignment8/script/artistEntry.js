@@ -8,13 +8,25 @@ function submitMe() {
 			'name' : $('#artist_name').val()
 		},
 		success : function(data) {
-			if (data.status == 'success')
+			if (data.status == 'success') {
 				processSuccess(data);
+			} else if (data.status == 'error') {
+				alert('Fialed to insert with message: ' + data.message);
+			} else {
+				alert(data);
+			}
 		}
 	});
 
 }
 
 function processSuccess(data) {
-	alert(data.message);
+	if (data.message == 'ok') {
+		alert('Insertion Success of Artist: ' + $('#artist_name').val());
+		$('#artist_name').val('');
+		$('#artist_name').focus();
+	} else {
+		alert('Fialed to insert with message: ' + data.message);
+	}
+
 }

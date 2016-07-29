@@ -9,3 +9,8 @@
 input {
 	margin: 15px;
 }
+
+#register {
+	float: right;
+	margin-right: 25px;
+}

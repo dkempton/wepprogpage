@@ -16,9 +16,16 @@
 		<object id="headdiv" type="text/html" data="templates/head_page.htm">
 		</object>
 
-		<form>
-		
-		</form>
+		<div>
+			<div class="display_area" id="display_area">
+			<p>Just put something in, it doesn't really matter what.</p>
+				<label class="_label" for="user_name">Username:</label> <input
+					id="user_name" name="user_name" tabindex="1" autofocus> <br />
+				<label class="_label" for="user_pass">Password:</label> <input
+					id="user_pass" name="user_pass" tabindex="2">
+			</div>
+			<button class="action_button" tabindex="3" onclick="submitMe()">Login</button>
+		</div>
 
 		<div class="foot_div">
 			<hr />

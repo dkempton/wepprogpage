@@ -80,6 +80,13 @@ function handlePost($mysqli) {
 			$response_array ['message'] = "ok";
 			return $response_array;
 		}
+	} else if (isset ( $_POST ['typePost'] ) && $_POST ['typePost'] === 'logout') {
+		if (isset ( $_SESSION ['who_id'] ))
+			unset ( $_SESSION ['who_id'] );
+		if (isset ( $_SESSION ['timeout'] ))
+			unset ( $_SESSION ['timeout'] );
+		$response_array ['status'] = 'success';
+		return $response_array;
 	} else {
 		$response_array ['status'] = 'error';
 		$response_array ['message'] = 'Unrecognized Post Request.';
@@ -89,13 +96,32 @@ function handlePost($mysqli) {
 function handleGet($mysqli) {
 	$response_array = array ();
 	if (isset ( $_GET ['typeGet'] ) && $_GET ['typeGet'] === 'loggedin') {
-		if ($_SESSION ['timeout'] + 60 * 10 > time ()) {
+		if (isset ( $_SESSION ['timeout'] ) && $_SESSION ['timeout'] + 60 * 10 > time ()) {
 			$response_array ['status'] = 'success';
 			$response_array ['message'] = "ok";
 			$_SESSION ['timeout'] = time ();
 		} else {
 			$response_array ['status'] = 'success';
 			$response_array ['message'] = "no";
+		}
+		return $response_array;
+	} else if (isset ( $_GET ['typeGet'] ) && $_GET ['typeGet'] === 'userinfo') {
+		if (isset ( $_SESSION ['timeout'] ) && $_SESSION ['timeout'] + 60 * 10 > time ()) {
+			$_SESSION ['timeout'] = time ();
+			$userId = $_SESSION ['who_id'];
+			$selectUserStatement = "SELECT * FROM users WHERE id='$userId';";
+			if ($result = $mysqli->query ( $selectUserStatement )) {
+				$row = mysqli_fetch_row ( $result );
+				$response_array ['status'] = 'success';
+				$response_array ['userName'] = $row [1];
+				$response_array ['userEmail'] = $row [3];
+			} else {
+				$response_array ['status'] = 'error';
+				$response_array ['message'] = 'Failed to get user info.';
+			}
+		} else {
+			$response_array ['status'] = 'error';
+			$response_array ['message'] = "No Login";
 		}
 		return $response_array;
 	} else {

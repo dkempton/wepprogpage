@@ -40,6 +40,11 @@ thead {
 	border-bottom: 1px solid black;
 }
 
+tfoot{
+	background: lightblue;
+	border-bottom: 1px solid black;
+}
+
 td:last-child {
 	text-align: center;
 	width: 75px;
@@ -56,4 +61,8 @@ tr:nth-child(even) {
 
 col:nth-child(2) {
 	width: 50px;
+}
+
+.counts {
+	width: 65px;
 }

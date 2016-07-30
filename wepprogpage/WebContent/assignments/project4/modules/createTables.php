@@ -16,7 +16,7 @@ if (! $result = $mysqli->query ( $dropOrderItemsTableStatement )) {
 	return;
 }
 
-$dropOrderTableStatement = "DROP TABLE IF EXISTS `order`;";
+$dropOrderTableStatement = "DROP TABLE IF EXISTS `order_table`;";
 // Drop Order table
 if (! $result = $mysqli->query ( $dropOrderTableStatement )) {
 	echo "Failed execute Query: Drop Order Table.";
@@ -92,10 +92,10 @@ if (! $result = $mysqli->query ( $createShoppingCartStatement )) {
 	return;
 }
 
-$createOrderStatement = "CREATE TABLE `order` (
+$createOrderStatement = "CREATE TABLE `order_table` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `order_date` date NOT NULL,
+  `order_date` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_order_idx` (`user_id`),
   CONSTRAINT `order_user_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION );";
@@ -113,7 +113,7 @@ $createOrderItemsStatement = "CREATE TABLE `order_items` (
   `num_ordered` int(11) NOT NULL,
   KEY `order_items_id_fk_idx` (`order_id`),
   KEY `order_items_id_fk_idx1` (`item_id`),
-  CONSTRAINT `order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `order_id_fk` FOREIGN KEY (`order_id`) REFERENCES `order_table` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `order_items_id_fk` FOREIGN KEY (`item_id`) REFERENCES `inventory_items` (`id`) ON UPDATE NO ACTION );";
 
 // Create Order table

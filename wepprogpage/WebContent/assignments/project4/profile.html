@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="css/main.css" />
-<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/profile.css" />
 
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="images/favicon.ico" />
+
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 <script type="text/javascript" src="script/logout.js"></script>
 <script type="text/javascript" src="script/cartIcon.js"></script>
-<title>Menu</title>
+<script type="text/javascript" src="script/profile.js"></script>
+<title>User Profile</title>
 </head>
-<body onload="setCartCount()">
+<body>
 	<div class="content">
 		<object id="headdiv" type="text/html" data="templates/head_page.htm">
 		</object>
@@ -22,19 +27,12 @@
 			<div id="cart" onclick="cartProcess()">
 				<img alt="cartIcon" src="images/cart.png"><span></span>
 			</div>
+			<h1>User Profile</h1>
+			<div class="display_area" id="user_area"></div>
+			<div class="display_table_area" id="order_area"></div>
 
-			<div class="display_area" id="display_area">
-				<h1>Main Menu</h1>
-				<ul>
-					<li><a id="register" href="register.html">Register User</a></li>
-					<li><a id="login" href="login.html">Login User</a></li>
-					<li><a id="inventory" href="inventory.html">See Inventory</a></li>
-					<li><a id="cartli" href="shoppingcart.html">Shopping Cart</a></li>
-					<li><a id="checkout" href="checkout.html">Checkout</a></li>
-					<li><a id="checkout" href="profile.html">Profile</a></li>
-
-				</ul>
-			</div>
+			<button class="action_button" tabindex="2"
+				onclick="window.location = 'menu.html'">Return To Menu</button>
 		</div>
 
 		<div class="foot_div">
@@ -43,5 +41,6 @@
 				data="templates/footer_page.html"></object>
 		</div>
 	</div>
+	<div id="order-div"></div>
 </body>
 </html>

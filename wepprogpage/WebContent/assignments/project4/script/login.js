@@ -1,5 +1,19 @@
+var params;
 function submitMe() {
+	params = getUrlVars();
 	checkUser();
+}
+
+function getUrlVars() {
+	var vars = [], hash;
+	var hashes = window.location.href.slice(
+			window.location.href.indexOf('?') + 1).split('&');
+	for (var i = 0; i < hashes.length; i++) {
+		hash = hashes[i].split('=');
+		vars.push(hash[0]);
+		vars[hash[0]] = hash[1];
+	}
+	return vars;
 }
 
 function checkUser() {
@@ -18,7 +32,22 @@ function checkUser() {
 				if (data.message == 'ok') {
 					$('#user_name').val('');
 					$('#user_pass').val('');
-					window.location = 'menu.html';
+					if (params.length > 0 && 'from' in params) {
+						if (params['from'] == 'inventory') {
+							window.location = 'inventory.html?itemAdd='
+									+ params['item'];
+						} else if (params['from'] == 'shoppingcart') {
+							window.location = 'shoppingcart.html';
+						} else if (params['from'] == 'checkout') {
+							window.location = 'checkout.html';
+						} else if (params['from'] == 'profile') {
+							window.location = 'profile.html';
+						} else {
+							window.location = 'menu.html';
+						}
+					} else {
+						window.location = 'menu.html';
+					}
 				} else {
 					$('#user_name').val('');
 					$('#user_pass').val('');

@@ -8,6 +8,8 @@
 <link rel="icon" href="images/favicon.ico" />
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="script/cartIcon.js"></script>
+<script type="text/javascript" src="script/logout.js"></script>
 <script type="text/javascript" src="script/inventory.js"></script>
 <title>Inventory</title>
 </head>
@@ -17,12 +19,20 @@
 		</object>
 
 		<div>
+			<div id="logout" onclick="logout()">Logout</div>
 			<div id="cart" onclick="cartProcess()">
 				<img alt="cartIcon" src="images/cart.png"><span></span>
 			</div>
-			<div class="display_area" id="display_area">
-				
-			</div>
+			<h1>Inventory</h1>
+			<div class="display_area" id="display_area"></div>
+
+			<button class="action_button" tabindex="1"
+				onclick="window.location = 'checkout.html'">Check Out</button>
+			<button class="action_button" tabindex="2"
+				onclick="window.location = 'menu.html'">Return To Menu</button>
+			<button class="action_button" tabindex="3"
+				onclick="window.location = 'shoppingcart.html'">Shopping
+				Cart</button>
 		</div>
 
 		<div class="foot_div">

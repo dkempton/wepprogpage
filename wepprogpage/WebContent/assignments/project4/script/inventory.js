@@ -1,24 +1,41 @@
+
 var loaded;
 
 $(document).ready(function() {
 	init();
 });
 
-function setCartCount() {
+function getUrlVars() {
+	var vars = [], hash;
+	var hashes = window.location.href.slice(
+			window.location.href.indexOf('?') + 1).split('&');
+	for (var i = 0; i < hashes.length; i++) {
+		hash = hashes[i].split('=');
+		vars.push(hash[0]);
+		vars[hash[0]] = hash[1];
+	}
+	return vars;
+}
+
+
+
+function addItemToCart(itemId) {
 	$
 			.ajax({
 				url : "modules/shoppingcart.php",
-				type : 'GET',
+				type : 'POST',
 				data : {
-					'typeGet' : 'count'
+					'typePost' : 'additem',
+					'itemId' : itemId
 				},
 				success : function(data) {
 					if (data.status == 'success') {
-						$('#cart').children('span')
-								.text("(" + data.count + ")");
+						setCartCount();
+						alert("Item Added.");
 					} else if (data.status == 'error') {
 						if (data.message.localeCompare('No Login') == 0) {
-							$('#cart').children('span').text("(0)");
+							window.location = 'login.html?from=inventory&item='
+									+ itemId;
 						} else {
 							alert("Failed to connect to shopping cart with message:"
 									+ data.message);
@@ -34,22 +51,22 @@ function setCartCount() {
 			});
 }
 
-function addItemToCart(itemId) {
+function addItemToCartAndReLoad(itemId) {
 	$
 			.ajax({
 				url : "modules/shoppingcart.php",
 				type : 'POST',
 				data : {
 					'typePost' : 'additem',
-					'itmeId' : itemId
+					'itemId' : itemId
 				},
 				success : function(data) {
 					if (data.status == 'success') {
-						setCartCount();
+						window.location = 'inventory.html';
 					} else if (data.status == 'error') {
 						if (data.message.localeCompare('No Login') == 0) {
-							window.location = 'login.html?to=shoppingcart&from=inventory&id='
-									+ itemId;
+							window.location = 'login.html?from=inventory&item='
+								+ itemId;
 						} else {
 							alert("Failed to connect to shopping cart with message:"
 									+ data.message);
@@ -67,9 +84,15 @@ function addItemToCart(itemId) {
 
 function init() {
 	loaded = false;
-	getInventory();
-	setCartCount();
-	checkLoad();
+	var params = getUrlVars();
+	if (params.length > 0 && 'itemAdd' in params) {
+		addItemToCartAndReLoad(params['itemAdd']);
+	} else {
+		getInventory();
+		setCartCount();
+		checkLoad();
+	}
+
 }
 
 function checkLoad() {
@@ -128,34 +151,7 @@ function checkLoad() {
 	}
 }
 
-function cartProcess() {
-	$
-			.ajax({
-				url : "modules/user.php",
-				type : 'GET',
-				data : {
-					'typeGet' : 'loggedin'
-				},
-				success : function(data) {
-					if (data.status == 'success') {
-						if (data.message.localeCompare("ok") == 0) {
-							window.location = 'shoppingcart.html'
-						} else {
-							window.location = 'login.html';
-						}
-					} else if (data.status == 'error') {
-						alert("Failed to connect to shopping cart with message:"
-								+ data.message);
-					} else {
-						alert("Failed to connect to shopping cart with message:"
-								+ data);
-					}
-				},
-				error : function(data) {
-					alert(data.responseText);
-				}
-			});
-}
+
 
 function getInventory() {
 	$.ajax({

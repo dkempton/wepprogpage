@@ -71,3 +71,23 @@ button:focus {
 	-moz-box-shadow: inset 0px 0px 4px #ccc;
 	box-shadow: inset 0px 0px 4px #ccc;
 }
+
+h1 {
+	width: 100%;
+	text-align: center;
+	color: #0005FF;
+	font-size: 40px;
+	letter-spacing: 1px;
+	text-shadow: 0 1px 0 #111111, 0 2px 0 #222222, 0 3px 0 #444444, 0 4px 0
+		#666666, 0 5px 0 #777777, 0 6px 0 #888888, 0 7px 0 #333333, 0 8px 7px
+		rgba(0, 0, 0, 0.4), 0 9px 10px rgba(0, 0, 0, 0.2);
+}
+
+#logout {
+	float: left;
+	margin-left: 25px;
+}
+
+#logout:hover {
+	background: lightgray;
+}

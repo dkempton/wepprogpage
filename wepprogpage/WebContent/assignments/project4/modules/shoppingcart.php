@@ -35,7 +35,7 @@ function handlePost($mysqli) {
 	$response_array = array ();
 	if (isset ( $_POST ['typePost'] ) && $_POST ['typePost'] === 'additem') {
 		$userId = $_SESSION ['who_id'];
-		$itemId = $_POST ['itmeId'];
+		$itemId = $_POST ['itemId'];
 		$selectItemStatement = "SELECT * FROM shoppingcart WHERE user_id = '$userId' AND item_id = '$itemId';";
 		$result = $mysqli->query ( $selectItemStatement );
 		if ($result->num_rows == 0) {
@@ -59,6 +59,29 @@ function handlePost($mysqli) {
 			}
 			return $response_array;
 		}
+	} else if (isset ( $_POST ['typePost'] ) && $_POST ['typePost'] === 'reomve') {
+		$userId = $_SESSION ['who_id'];
+		$itemId = $_POST ['itemId'];
+		$updateCartItemStatement = "DELETE FROM shoppingcart WHERE user_id='$userId' AND item_id='$itemId';";
+		if ($result = $mysqli->query ( $updateCartItemStatement )) {
+			$response_array ['status'] = 'success';
+		} else {
+			$response_array ['status'] = 'error';
+			$response_array ['message'] = "Failed to delete item from cart.";
+		}
+		return $response_array;
+	} else if (isset ( $_POST ['typePost'] ) && $_POST ['typePost'] === 'update') {
+		$userId = $_SESSION ['who_id'];
+		$itemId = $_POST ['itemId'];
+		$itemCount = $_POST ['itemCount'];
+		$updateCartItemStatement = "UPDATE shoppingcart SET number='$itemCount' WHERE user_id='$userId' AND item_id='$itemId';";
+		if ($result = $mysqli->query ( $updateCartItemStatement )) {
+			$response_array ['status'] = 'success';
+		} else {
+			$response_array ['status'] = 'error';
+			$response_array ['message'] = "Failed to delete item from cart.";
+		}
+		return $response_array;
 	} else {
 		$response_array ['status'] = 'error';
 		$response_array ['message'] = 'Unrecognized Post Request.';

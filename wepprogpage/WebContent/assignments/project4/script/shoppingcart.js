@@ -1,5 +1,5 @@
 var loaded;
-
+var items;
 $(document).ready(function() {
 	init();
 });
@@ -23,7 +23,7 @@ function getCart() {
 						getTable(data.items);
 					} else if (data.status == 'error') {
 						if (data.message == 'No Login') {
-							window.location = 'login.html';
+							window.location = 'login.html?from=shoppingcart';
 						} else {
 							alert("Failed to connect to shopping cart with message:"
 									+ data.message);
@@ -86,16 +86,122 @@ function checkLoad() {
 			}
 		});
 
-		$('.add_span').on('click', function(ev) {
-			var trId = ev.target.parentElement.parentElement.id;
-			var idSplit = trId.split('_');
-			addItemToCart(idSplit[1]);
-		});
+		$('.counts').on(
+				'input',
+				function(ev) {
+					var countVal = ev.target.value;
+					if (countVal == 0) {
+						var trId = ev.target.parentElement.parentElement.id;
+						var idSplit = trId.split('_');
+						var resp = confirm('Do you wish to remove item: '
+								+ items[idSplit[1]].name);
+						if (resp) {
+							removeItemFromCart(idSplit[1]);
+						} else {
+							ev.target.value = 1;
+						}
+					} else {
+						var trId = ev.target.parentElement.parentElement.id;
+						var idSplit = trId.split('_');
+						updateItemCountInCart(idSplit[1], countVal);
+					}
 
+				});
 	}
 }
 
+function removeItemFromCart(itemId) {
+	$
+			.ajax({
+				url : "modules/shoppingcart.php",
+				type : 'POST',
+				data : {
+					'typePost' : 'reomve',
+					'itemId' : itemId
+				},
+				success : function(data) {
+					if (data.status == 'success') {
+						removeTable();
+						delete items[itemId];
+						getTable(items);
+						checkLoad();
+					} else if (data.status == 'error') {
+						if (data.message == 'No Login') {
+							window.location = 'login.html?from=shoppingcart';
+						} else {
+							alert("Failed to connect to shopping cart with message:"
+									+ data.message);
+						}
+					} else {
+						alert("Failed to connect to shopping cart with message:"
+								+ data);
+					}
+				},
+				error : function(data) {
+					alert(data.responseText);
+				}
+			});
+}
+
+function updateItemCountInCart(itemId, count) {
+	$
+			.ajax({
+				url : "modules/shoppingcart.php",
+				type : 'POST',
+				data : {
+					'typePost' : 'update',
+					'itemId' : itemId,
+					'itemCount' : count
+				},
+				success : function(data) {
+					if (data.status == 'success') {
+						items[itemId].number = count;
+						updateTotal();
+					} else if (data.status == 'error') {
+						if (data.message == 'No Login') {
+							window.location = 'login.html?from=shoppingcart';
+						} else {
+							alert("Failed to connect to shopping cart with message:"
+									+ data.message);
+						}
+					} else {
+						alert("Failed to connect to shopping cart with message:"
+								+ data);
+					}
+				},
+				error : function(data) {
+					alert(data.responseText);
+				}
+			});
+}
+function removeTable() {
+	var dispElem = document.getElementById('display_area');
+	while (dispElem.hasChildNodes()) {
+		dispElem.removeChild(dispElem.lastChild);
+	}
+}
+
+function updateTotal(){
+	var foot = document.getElementsByTagName('tfoot')[0];
+	while (foot.hasChildNodes()) {
+		foot.removeChild(foot.lastChild);
+	}
+	var trElem = document.createElement('tr');
+	var titleTd = document.createElement('td');
+	titleTd.setAttribute('colspan', '3');
+	titleTd.innerText = "Sum";
+	trElem.appendChild(titleTd);
+	var totalTd = document.createElement('td');
+	var sum = 0;
+	for ( var key in items) {
+		sum += items[key].number * items[key].price;
+	}
+	totalTd.innerText = '$' + sum.toFixed(2);
+	trElem.appendChild(totalTd);
+	foot.appendChild(trElem);
+}
 function getTable(itemArray) {
+	items = itemArray;
 	var dispElem = document.getElementById('display_area');
 
 	var table = document.createElement('table');
@@ -132,12 +238,31 @@ function getTable(itemArray) {
 		tr.appendChild(descriptTd);
 		var priceTd = getTdElem('$' + itemArray[itemKeys[i]].price, false);
 		tr.appendChild(priceTd);
-		var quantityTd = getTdElem(+itemArray[itemKeys[i]].number, false);
+		var quantityTd = getNumberTdElem(+itemArray[itemKeys[i]].number);
 		tr.appendChild(quantityTd);
 		table.appendChild(tr);
 	}
+	table.appendChild(getFoot());
 	dispElem.appendChild(table);
 	loaded = true;
+}
+
+function getFoot() {
+	var foot = document.createElement('tfoot');
+	var trElem = document.createElement('tr');
+	var titleTd = document.createElement('td');
+	titleTd.setAttribute('colspan', '3');
+	titleTd.innerText = "Sum";
+	trElem.appendChild(titleTd);
+	var totalTd = document.createElement('td');
+	var sum = 0;
+	for ( var key in items) {
+		sum += items[key].number * items[key].price;
+	}
+	totalTd.innerText = '$' + sum.toFixed(2);
+	trElem.appendChild(totalTd);
+	foot.appendChild(trElem);
+	return foot;
 }
 
 function getTrElem(name) {
@@ -154,5 +279,17 @@ function getTdElem(text, hidden) {
 	if (hidden)
 		span.style.display = 'none';
 	tdElem.appendChild(span);
+	return tdElem;
+}
+
+function getNumberTdElem(value) {
+	var tdElem = document.createElement('td');
+	var input = document.createElement('input');
+	input.setAttribute('type', 'number');
+	input.setAttribute('min', '0');
+	input.setAttribute('class', 'counts');
+	input.setAttribute('value', value);
+
+	tdElem.appendChild(input);
 	return tdElem;
 }

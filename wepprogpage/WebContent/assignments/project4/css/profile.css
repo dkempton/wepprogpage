@@ -1,5 +1,11 @@
 .display_area {
 	margin: 25px;
+	font-size: 35px;
+	color: gray;
+}
+
+.display_table_area {
+	margin: 25px;
 }
 
 #cart {
@@ -16,23 +22,31 @@
 	background: lightgray;
 }
 
-table {
-	width: 750px;
+#orders_table {
+	width: 450px;
 	margin: 0 auto;
+}
+
+#inventory_table {
+	margin: 0 auto;
+}
+
+#orders_table tr:hover {
+	background: lightgray;
+}
+
+thead {
+	background: lightblue;
+	border-bottom: 1px solid black;
+}
+
+tfoot {
+	background: lightblue;
+	border-bottom: 1px solid black;
 }
 
 td {
 	padding-top: 25px;
-}
-
-.add_span {
-	color: blue;
-	margin-left: 15px;
-}
-
-.add_span:hover {
-	color: red;
-	background: lightgray;
 }
 
 thead {
@@ -46,7 +60,7 @@ td:last-child {
 }
 
 td:first-child {
-	text-align: left;
+	text-align: center;
 	width: 150px;
 }
 
@@ -56,4 +70,9 @@ tr:nth-child(even) {
 
 col:nth-child(2) {
 	width: 50px;
+}
+
+.info {
+	font-size: 45px;
+	color: gray;
 }

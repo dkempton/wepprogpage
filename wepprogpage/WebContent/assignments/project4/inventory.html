@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/inventory.css" />
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="images/favicon.ico" />
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="script/inventory.js"></script>
+<title>Inventory</title>
+</head>
+<body>
+	<div class="content">
+		<object id="headdiv" type="text/html" data="templates/head_page.htm">
+		</object>
+
+		<div>
+			<div id="cart" onclick="cartProcess()">
+				<img alt="cartIcon" src="images/cart.png"><span></span>
+			</div>
+			<div class="display_area" id="display_area">
+				
+			</div>
+		</div>
+
+		<div class="foot_div">
+			<hr />
+			<object id="footdiv" type="text/html"
+				data="templates/footer_page.html"></object>
+		</div>
+	</div>
+</body>
+</html>

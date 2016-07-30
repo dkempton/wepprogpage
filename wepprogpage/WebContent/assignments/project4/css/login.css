@@ -1,16 +1,32 @@
 .display_area {
 	margin: 25px;
-}
-
-._label {
-	margin: 15px;
-}
-
-input {
-	margin: 15px;
+	display: block;
 }
 
 #register {
 	float: right;
 	margin-right: 25px;
+}
+
+#userinfodiv {
+	padding: 25px;
+	width: 100%;
+	margin: 0 auto;
+	display: inline-block;
+}
+
+#userinfodiv input, label {
+	float: left;
+	margin-top: 35px;
+}
+
+#userinfodiv label {
+	clear: left;
+	display: block;
+	width: 100px;
+}
+
+.bottom {
+	display: block;
+	width: 100%;
 }

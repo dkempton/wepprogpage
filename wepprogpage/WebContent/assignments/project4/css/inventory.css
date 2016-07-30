@@ -1,0 +1,60 @@
+.display_area {
+	margin: 25px;
+}
+
+#cart {
+	float: right;
+	margin-right: 25px;
+}
+
+#cart img {
+	height: 15px;
+	width: 15px;
+}
+
+#cart:hover {
+	background: lightgray;
+}
+
+table {
+	width: 750px;
+	margin: 0 auto;
+}
+
+td {
+	padding-top: 25px;
+}
+
+.add_span {
+	color: blue;
+	margin-left: 15px;
+}
+
+.add_span:hover {
+	color: red;
+	background: lightgray;
+}
+
+thead {
+	background: lightblue;
+	border-bottom: 1px solid black;
+}
+
+td:last-child {
+	text-align: center;
+	width: 200px;
+}
+
+td:first-child {
+	text-align: left;
+	width: 150px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+col:nth-child(2) {
+	width: 50px;
+}
+;

@@ -12,7 +12,7 @@
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 
 <script type="text/javascript" src="script/register.js"></script>
-<title>Assignment 8</title>
+<title>Register</title>
 </head>
 <body>
 	<div class="content">
@@ -22,15 +22,23 @@
 		<div>
 			<a id="register" href="login.html">Go To Login</a>
 			<div class="display_area" id="display_area">
-				<div id="hint-div">You will be asked to confirm your password,
-					but not your username.</div>
-				<label class="_label" for="user_name">Username:</label> <input
-					id="user_name" name="user_name" tabindex="1" autofocus> <br />
-				<label class="_label" for="user_pass">Password:</label> <input
-					type="password" id="user_pass" name="user_pass" tabindex="2">
+				<div id="hint-div">You will be asked to confirm your password
+					and email, but not your username.</div>
+				<div id="userinfodiv">
+					<label for="user_name">Username:</label> <input id="user_name"
+						name="user_name" tabindex="1" autofocus> <br /> <label
+						for="user_pass">Password:</label> <input type="password"
+						id="user_pass" name="user_pass" tabindex="2"><br /> <label
+						for="user_email">Email:</label> <input id="user_email"
+						name="user_email" tabindex="3">
+				</div>
 			</div>
-			<button id="create-user" class="action_button" tabindex="3">Register
-				New User</button>
+			<div class="bottom">
+				<button id="create-user" class="action_button" tabindex="4">Register
+					New User</button>
+				<button class="action_button" tabindex="3"
+					onclick="window.location = 'menu.html'">Cancel</button>
+			</div>
 		</div>
 
 		<div class="foot_div">

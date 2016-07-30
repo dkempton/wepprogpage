@@ -1,0 +1,17 @@
+.display_area {
+	margin: 25px;
+}
+
+#cart {
+	float: right;
+	margin-right: 25px;
+}
+
+#cart img {
+	height: 15px;
+	width: 15px;
+}
+
+#cart:hover {
+	background: lightgray;
+}

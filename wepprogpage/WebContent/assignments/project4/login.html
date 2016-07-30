@@ -9,7 +9,7 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="script/login.js"></script>
-<title>Assignment 8</title>
+<title>Login</title>
 </head>
 <body>
 	<div class="content">
@@ -20,12 +20,18 @@
 			<a id="register" href="register.html">Register User</a>
 			<div class="display_area" id="display_area">
 				<div id="hint-div">Put in your username and password.</div>
-				<label class="_label" for="user_name">Username:</label> <input
-					id="user_name" name="user_name" tabindex="1" autofocus> <br />
-				<label class="_label" for="user_pass">Password:</label> <input
-					type="password" id="user_pass" name="user_pass" tabindex="2">
+				<div id="userinfodiv">
+					<label for="user_name">Username:</label> <input id="user_name"
+						name="user_name" tabindex="1" autofocus></input> <br /> <label
+						for="user_pass">Password:</label> <input type="password"
+						id="user_pass" name="user_pass" tabindex="2"></input>
+				</div>
+				<div class="bottom">
+					<button class="action_button" tabindex="3" onclick="submitMe()">Login</button>
+					<button class="action_button" tabindex="3"
+						onclick="window.location = 'menu.html'">Cancel</button>
+				</div>
 			</div>
-			<button class="action_button" tabindex="3" onclick="submitMe()">Login</button>
 		</div>
 
 		<div class="foot_div">

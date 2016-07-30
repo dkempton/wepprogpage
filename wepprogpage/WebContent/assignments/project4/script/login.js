@@ -6,10 +6,10 @@ function checkUser() {
 	var username = $('#user_name').val();
 	var userpass = $('#user_pass').val();
 	$.ajax({
-		url : "user.php",
+		url : "modules/user.php",
 		type : 'POST',
 		data : {
-			'typePost' : 'usercheck',
+			'typePost' : 'userlogin',
 			'username' : username,
 			'userpass' : userpass
 		},
@@ -18,7 +18,7 @@ function checkUser() {
 				if (data.message == 'ok') {
 					$('#user_name').val('');
 					$('#user_pass').val('');
-					window.location = 'displayAlblums.html';
+					window.location = 'menu.html';
 				} else {
 					$('#user_name').val('');
 					$('#user_pass').val('');

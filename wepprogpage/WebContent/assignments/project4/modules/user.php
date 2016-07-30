@@ -12,6 +12,8 @@ try {
 	$mysqli = new mysqli ( $host, $user, $passwd, $database );
 	if ($_SERVER ['REQUEST_METHOD'] === 'POST') {
 		$response_array = handlePost ( $mysqli );
+	} else if ($_SERVER ['REQUEST_METHOD'] === 'GET') {
+		$response_array = handleGet ( $mysqli );
 	} else {
 		$response_array ['status'] = 'error';
 		$response_array ['message'] = 'Unrecognized Request.';
@@ -23,9 +25,9 @@ try {
 }
 function handlePost($mysqli) {
 	$response_array = array ();
-	if (isset ( $_POST ['typePost'] ) && $_POST ['typePost'] === 'usercheck') {
-		$userName = $_POST ['username'];
-		$userPass = $_POST ['userpass'];
+	if (isset ( $_POST ['typePost'] ) && $_POST ['typePost'] === 'userlogin') {
+		$userName = mysqli_real_escape_string ( $mysqli, $_POST ['username'] );
+		$userPass = mysqli_real_escape_string ( $mysqli, $_POST ['userpass'] );
 		$selectUserStatement = "SELECT * FROM users WHERE username='$userName';";
 		$result = $mysqli->query ( $selectUserStatement );
 		if ($result->num_rows == 0) {
@@ -48,12 +50,27 @@ function handlePost($mysqli) {
 				return $response_array;
 			}
 		}
+	} else if (isset ( $_POST ['typePost'] ) && $_POST ['typePost'] === 'usercheck') {
+		$userName = mysqli_real_escape_string ( $mysqli, $_POST ['username'] );
+		
+		$selectUserStatement = "SELECT * FROM users WHERE username='$userName';";
+		$result = $mysqli->query ( $selectUserStatement );
+		if ($result->num_rows == 0) {
+			$response_array ['status'] = 'success';
+			$response_array ['message'] = "Not In DB";
+			return $response_array;
+		} else {
+			$response_array ['status'] = 'success';
+			$response_array ['message'] = "In DB";
+			return $response_array;
+		}
 	} else if (isset ( $_POST ['typePost'] ) && $_POST ['typePost'] === 'newuser') {
-		$userName = $_POST ['username'];
-		$userPass = $_POST ['userpass'];
+		$userName = mysqli_real_escape_string ( $mysqli, $_POST ['username'] );
+		$userPass = mysqli_real_escape_string ( $mysqli, $_POST ['userpass'] );
+		$userEmail = mysqli_real_escape_string ( $mysqli, $_POST ['useremail'] );
 		$passEncoded = md5 ( $userPass );
 		
-		$insertUserStatement = "INSERT INTO users (username, passwd) VALUES ('$userName', '$passEncoded');";
+		$insertUserStatement = "INSERT INTO users (username, passwd, email) VALUES ('$userName', '$passEncoded','$userEmail');";
 		if (! $result = $mysqli->query ( $insertUserStatement )) {
 			$response_array ['status'] = 'error';
 			$response_array ['message'] = "Error: $mysqli->error";
@@ -66,6 +83,24 @@ function handlePost($mysqli) {
 	} else {
 		$response_array ['status'] = 'error';
 		$response_array ['message'] = 'Unrecognized Post Request.';
+		return $response_array;
+	}
+}
+function handleGet($mysqli) {
+	$response_array = array ();
+	if (isset ( $_GET ['typeGet'] ) && $_GET ['typeGet'] === 'loggedin') {
+		if ($_SESSION ['timeout'] + 60 * 10 > time ()) {
+			$response_array ['status'] = 'success';
+			$response_array ['message'] = "ok";
+			$_SESSION ['timeout'] = time ();
+		} else {
+			$response_array ['status'] = 'success';
+			$response_array ['message'] = "no";
+		}
+		return $response_array;
+	} else {
+		$response_array ['status'] = 'error';
+		$response_array ['message'] = 'Unrecognized Get Request.';
 		return $response_array;
 	}
 }
